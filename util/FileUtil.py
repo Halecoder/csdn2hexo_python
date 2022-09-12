@@ -89,6 +89,15 @@ class FileUtil:
                 imgs_list = soup.select('img')
                 for img_model in imgs_list:
                     old_url = img_model['src']
+                    
+                    # # 去CSDN图片自带水印
+                    # split_str = '?x-oss-process'
+                    # old_url = img_model['src']
+                    # if split_str in old_url:
+                    #     old_url = old_url.split(split_str)[0]
+                    # else:
+                    #     old_url = old_url
+                    
                     fix = self.getPicture(old_url)
                     if fix!='':
                         new_url = web_image_path+self.getPicture(old_url)
